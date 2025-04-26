@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Event Organisers | Sky Team</title>
+
+  <!--swiper css-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+  <!--font awesome-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+  <link rel="icon" type="image/x-icon" href="logo.jpg">
+  <!--tailwind css-->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!--css file-->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <center>
+    <div class="popup">
+      <p>
+        <center class="alert">Message Sent! 📨</center>
+        <br>
+      <p class="massage"></p>
+      </p>
+      <br>
+      <button onclick="closePop()">Close</button>
+    </div>
+  </center>
+  <!-- LOGIN AND SIGN Up section -->
+  <div class="login-box">
+    <h1 class="float-right "><i class="fas fa-times text-red-900 mb-4 mt-4" onclick="close_login()"></i></h1>
+    <h1 class="mt-20 mb-12 mx-12">Login</h1>
+    <div class="textbox">
+      <input type="text" placeholder="Username" name="" value="" class="login_input">
+    </div>
+    <div class="textbox">
+      <input type="password" placeholder="Password" name="" value="" class="login_input">
+      <input type="checkbox" onclick="show()" class="check">
+    </div>
+    <input class="login_btn bg-white" type="button" name="" value="Login" onclick="login_check()">
+    <button class="register text-xl">Don't have an account? <span class="text-blue-900" onclick="change()">Sign
+        up</span></button>
+  </div>
+
+  <div class="register-box">
+    <h1 class="float-right"><i class="fas fa-times text-red-900 mb-4 mt-4" onclick="close_register()"></i></h1>
+    <h1 class="mt-20 mb-12 mx-12">Register</h1>
+    <div class="textbox">
+      <input type="text" placeholder="Full Name" class="login_input">
+    </div>
+    <div class="textbox">
+      <input type="email" placeholder="Mail ID" class="login_input">
+    </div>
+    <div class="textbox">
+      <input type="password" placeholder="Password" class="login_input">
+      <input type="checkbox" onclick="register_pass_show()" class="check">
+    </div>
+    <div class="textbox">
+      <input type="password" placeholder="Confirm password" class="login_input">
+      <input type="checkbox" onclick="register_con_show()" class="check">
+    </div>
+    <input class="login_btn bg-white" type="button" name="" value="Register" onclick="register_check()">
+    <button class="register text-xl">Have an account? <span onclick="change()" class="text-blue-900">Log in</span></button>
+  </div>
+
+  <!-- header section starts  -->
+  <header class="header">
+    <a href="#">
+      <img src="logo.jpg" class="logo rounded-full" width='70px' height='70px'></a>
+    <nav class="navbar">
+      <a href="#home" class="mx-3 text-white text-3xl cursor-pointer">home</a>
+      <a href="#service" class="mx-3 text-white text-3xl cursor-pointer">service</a>
+      <a href="#about" class="mx-3 text-white text-3xl cursor-pointer">about</a>
+      <a href="#gallery" class="mx-3 text-white text-3xl cursor-pointer">gallery</a>
+      <a href="#price" class="mx-3 text-white text-3xl cursor-pointer">Packages</a>
+      <a href="#review" class="mx-3 text-white text-3xl cursor-pointer">review</a>
+      <a href="#contact" class="mx-3 text-white text-3xl cursor-pointer">contact</a>
+      <a onclick="login_register()" class="login mx-3 text-white text-3xl cursor-pointer"
+        style="background-color:black; padding:10px;border-radius:1.5rem;cursor:pointer">Login</a>
+    </nav>
+
+    <div id="menu-bars" class="fas fa-bars"></div>
+  </header>
+  <div class="main">
+    <!-- home section starts  -->
+    <section class="home" id="home">
+      <div class="content">
+        <h3>
+          where your ideas take off
+          <p>SKY EVENT</p>
+          <a href="#service" class="btn">Discover More</a>
+        </h3>
+      </div>
+
+      <div class="swiper-container home-slider">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="https://t4.ftcdn.net/jpg/08/44/99/67/360_F_844996789_BFT8WeCin0UWrGkU7H7BR2v0q4gaADWE.jpg"
+              alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="https://cdn.pixabay.com/photo/2018/05/10/11/34/concert-3387324_1280.jpg" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="https://cdn.pixabay.com/photo/2017/08/23/16/05/iocenters-2673327_1280.jpg" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="https://cdn.pixabay.com/photo/2018/07/05/14/45/conference-3518465_1280.jpg" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="https://cdn.pixabay.com/photo/2013/02/20/01/04/meeting-83519_1280.jpg" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="https://www.bollywoodshaadis.com/img/article-2023926813163947799000.jpg" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="https://i.pinimg.com/736x/ed/8e/3c/ed8e3ca2ec14d0a63d0ee2a695d84f45.jpg" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="https://images.unsplash.com/photo-1488085061387-422e29b40080?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="https://cdn.pixabay.com/photo/2020/01/15/17/35/concert-4768496_1280.jpg" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="https://content.jdmagicbox.com/comp/ahmedabad/f3/079pxx79.xx79.160926160114.a7f3/catalogue/green-valley-party-plot-sanand-city-sanand-banquet-halls-ertmot3bww.jpg"
+              alt="" />
+          </div>
+
+          <div class="swiper-slide">
+            <img src="https://images5.alphacoders.com/353/thumb-1920-353381.jpg" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- service section starts  -->
+    <section class="service" id="service">
+      <h1 class="heading">our services</h1>
+
+      <div class="box-container">
+        <div class="box">
+          <i class="fas fa-envelope"></i>
+          <h3>invitation card design</h3>
+          <p>
+            Make the right impression with beautifully crafted invitation cards. Our design team creates personalized
+            invitations that reflect the theme of your event, ensuring they are as unique and memorable as your
+            celebration.
+          </p>
+        </div>
+        <div class="box">
+          <i class="fas fa-photo-video"></i>
+          <h3>photos and videos</h3>
+          <p>
+            Capture the moments that matter with our professional photography and videography services. From candid
+            snapshots to cinematic event coverage, we provide high-quality memories you can cherish for a lifetime.
+          </p>
+        </div>
+        <div class="box">
+          <i class="fas fa-music"></i>
+          <h3>entertainment</h3>
+          <p>
+            Keep your guests entertained with our curated entertainment options. Whether you’re looking for live bands,
+            DJs, magicians, or performers, we bring the best talent to set the mood and elevate your event experience.
+          </p>
+        </div>
+        <div class="box">
+          <i class="fas fa-car"></i>
+          <h3>Event vehicles</h3>
+          <p>Arrive in style with our range of luxury vehicles.From sleek limousines to comfortable shuttles for
+            guests,we
+            ensure smooth and classy transportation options for your event.Your journey to and from the venue will be as
+            memorable as the event itself.</p>
+        </div>
+        <div class="box">
+          <i class="fas fa-map-marker-alt"></i>
+          <h3>venue selection</h3>
+          <p>
+            Choosing the perfect venue is crucial for any event's success. Our team specializes in finding venues that
+            match your vision and requirements. Whether it's an elegant ballroom, a scenic outdoor setting, or a cozy
+            indoor space, we help you secure the ideal location to make your event truly special.
+          </p>
+        </div>
+        <div class="box">
+          <i class="fas fa-birthday-cake"></i>
+          <h3>food catering</h3>
+          <p>
+            Delight your guests with exquisite catering services tailored to suit your event. Our culinary team offers a
+            wide variety of cuisines, ranging from traditional favorites to modern delicacies. With fresh ingredients
+            and
+            impeccable presentation, we ensure a dining experience that your guests will never forget.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- about section starts  -->
+    <section class="about" id="about">
+      <h1 class="heading"> about us</h1>
+
+      <div class="row">
+        <div class="image">
+          <img src="team1.png" alt="" />
+        </div>
+
+        <div class="content">
+          <h3>Our Team for careful planning of event</h3>
+          <p>
+            Event management is the application of project management to the creation
+            and development of small and/or large-scale personal or corporate events
+            such as festivals, conferences, ceremonies, weddings, formal parties, concerts,
+            or conventions.
+          </p>
+          <p>
+            People working in such a job profile are responsible to plan each and
+            every detail of an event which can be a wedding, conference or even a
+            corporate party for their client. They usually create a detail plan of
+            the event right from the theme, logistics to the budget.
+          </p>
+          <button class="btn">reach us</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- gallery section starts  -->
+    <section class="gallery" id="gallery">
+      <h1 class="heading">our gallery</h1>
+      <div class="box-container">
+        <div class="box">
+          <img src="gallery1.jpg" alt="" />
+        </div>
+
+        <div class="box">
+          <img src="gallery2.jpg" alt="" />
+        </div>
+
+        <div class="box">
+          <img src="gallery3.jpg" alt="" />
+        </div>
+
+        <div class="box">
+          <img src="gallery4.jpg" alt="" />
+        </div>
+
+        <div class="box">
+          <img src="gallery5.jpg" alt="" />
+        </div>
+
+        <div class="box">
+          <img src="gallery6.jpg" alt="" />
+        </div>
+
+        <div class="box">
+          <img src="gallery7.jpg" alt="" />
+        </div>
+
+        <div class="box">
+          <img src="gallery8.jpg" alt="" />
+        </div>
+
+        <div class="box">
+          <img src="gallery9.jpg" alt="" />
+        </div>
+      </div>
+    </section>
+
+    <!-- packagess section starts  -->
+    <section class="price" id="price">
+      <h1 class="heading">our different Packages</h1>
+
+      <div class="box-container">
+        <div class="box">
+          <h3 class="title">Basic</h3>
+          <h3 class="amount font-bold">₹4,80,000.00</h3>
+          <ul>
+            <li><i class="fas fa-times"></i>Full service</li>
+            <li><i class="fas fa-check"></i>Venue + basic decorations</li>
+            <li><i class="fas fa-check"></i>Basic food accrding location</li>
+            <li><i class="fas fa-check"></i>Cars</li>
+          </ul>
+          <button class="btn" onclick="Event_open('Basic')">check out</button>
+        </div>
+
+        <div class="box">
+          <h3 class="title">Prime</h3>
+          <h3 class="amount font-bold">₹6,80,000.00</h3>
+          <ul>
+            <li><i class="fas fa-times"></i>Full service</li>
+            <li><i class="fas fa-check"></i>Venue + basic decorations</li>
+            <li><i class="fas fa-check"></i>5 countries food</li>
+            <li><i class="fas fa-check"></i>Luxury Cars</li>
+          </ul>
+          <button class="btn" onclick="Event_open('Prime')">check out</button>
+        </div>
+
+        <div class="box">
+          <h3 class="title">Luxury</h3>
+          <h3 class="amount font-bold">₹50,00,000.00</h3>
+          <ul>
+            <li><i class="fas fa-times"></i>Full service</li>
+            <li><i class="fas fa-check"></i>Venue + Luxury decorations</li>
+            <li><i class="fas fa-check"></i>15 countries food</li>
+            <li><i class="fas fa-check"></i>Luxury Cars , 2 AeroPlan</li>
+          </ul>
+          <button class="btn" onclick="Event_open('Luxury')">check out</button>
+        </div>
+
+        <div class="box">
+          <h3 class="title">Ultra</h3>
+          <h3 class="amount font-bold">₹1,00,00,000.00</h3>
+          <ul>
+            <li><i class="fas fa-check"></i>Full service</li>
+            <li><i class="fas fa-check"></i>Venue + Ultra Luxury decorations</li>
+            <li><i class="fas fa-check"></i>95+ countries food</li>
+            <li><i class="fas fa-check"></i>Ultra Luxury Cars , Cruse , AeroPlan</li>
+          </ul>
+          <button class="btn" onclick="Event_open('Ultra')">check out</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Review section -->
+    <div class="review container" id="review">
+      <h1 class="heading">client's review</h1>
+      <div class="user-review">
+        <div class="user-info">
+          <img src="img1.jpg" alt="" style="height: 100px; width:100px; border-radius:50%"
+            class="max-auto d-block" />
+          <h3>nayan</h3>
+          <span>happy customer</span>
+          <p>
+            I highly recommend hiring a wedding coordinator for the day of. You don't want to
+            deal with the craziness. You also don't want a friend or relative helping out as the coordinator
+            because they will not be able to fully enjoy the wedding as a guest. I learned that firsthand when I
+            was the coordinator for my friend's wedding.
+          </p>
+        </div>
+        <div class="user-info">
+          <img src="img2.jpg" alt="" style="height: 100px; width:100px; border-radius:50%"
+            class="max-auto d-block" />
+          <h3>lisa</h3>
+          <span>happy customer</span>
+          <p>
+            I am a planner myself so was very careful about who I hired.
+            I wanted someone who was top notch and affordable and Kalrav Tran and they team are fantastic. It doesn't
+            get
+            any better than them. She also has a
+            very calming demeanor
+            which is necessary when dealing with guests, vendors and the tasks at hand. She is the best in the business!
+          </p>
+        </div>
+        <div class="user-info">
+          <img src="img3.jpg" alt="" style="height: 100px; width:100px; border-radius:50%"
+            class="max-auto d-block" />
+          <h3>om</h3>
+          <span>happy customer</span>
+          <p>
+            I highly recommend hiring a wedding coordinator for the day of. You don't want to
+            deal with the craziness. You also don't want a friend or relative helping out as the coordinator
+            because they will not be able to fully enjoy the wedding as a guest. I learned that firsthand when I
+            was the coordinator for my friend's wedding.
+          </p>
+        </div>
+        <div class="user-info">
+          <img src="img4.jpg" alt="" style="height: 100px; width:100px; border-radius:50%"
+            class="max-auto d-block" />
+          <h3>nency</h3>
+          <span>happy customer</span>
+          <p>
+            I am a planner myself so was very careful about who I hired.
+            I wanted someone who was top notch and affordable and Kalrav Tran and they team are fantastic. It doesn't
+            get
+            any better than them. She also has a
+            very calming demeanor
+            which is necessary when dealing with guests, vendors and the tasks at hand. She is the best in the business!
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- contact section starts  -->
+    <section class="contact" id="contact">
+      <h1 class="heading">contact us</h1>
+
+      <form action="">
+        <div class="inputBox">
+          <input type="text" placeholder="name" required class="input" />
+          <input type="email" placeholder="email" required class="input" />
+        </div>
+        <div class="inputBox">
+          <input type="number" placeholder="number" required class="input" />
+          <input type="text" placeholder="subject" required class="input" />
+        </div>
+        <textarea placeholder="Query" id="" cols="30" rows="10"></textarea>
+        <input value="send us" class="btn" onclick="check()" style="width: 130px;" />
+      </form>
+    </section>
+
+    <!-- footer section starts  -->
+    <section class="footer">
+      <div class="box-container">
+        <div class="box">
+          <h3>branches</h3>
+          <a href="https://www.google.com/maps/dir//%20bangalore,%20india"> <i class="fas fa-map-marker-alt"></i>
+            bangalore </a>
+          <a href="https://www.google.com/maps/dir//Hyderabad,%20India"><i class="fas fa-map-marker-alt"></i> hyderabad
+          </a>
+          <a href="https://www.google.com/maps/dir//delhi,%20India"> <i class="fas fa-map-marker-alt"></i> delhi </a>
+          <a href="https://www.google.com/maps/dir//kolkata,%20India"> <i class="fas fa-map-marker-alt"></i> kolkata
+          </a>
+          <a href="https://www.google.com/maps/dir//chennai,%20India"> <i class="fas fa-map-marker-alt"></i> chennai
+          </a>
+        </div>
+
+        <div class="box">
+          <h3>quick links</h3>
+          <a href="#"> <i class="fas fa-arrow-right"></i> home </a>
+          <a href="#service"> <i class="fas fa-arrow-right"></i> service </a>
+          <a href="#about"> <i class="fas fa-arrow-right"></i> about </a>
+          <a href="#gallery"> <i class="fas fa-arrow-right"></i> gallery </a>
+          <a href="#price"> <i class="fas fa-arrow-right"></i> price </a>
+          <a href="#review"> <i class="fas fa-arrow-right"></i> reivew </a>
+          <a href="#contact"> <i class="fas fa-arrow-right"></i> contact </a>
+        </div>
+
+        <div class="box">
+          <h3>contact info</h3>
+          <a href="tel:9725845511"><i class="fas fa-phone"></i>+91 9725845511</a>
+          <a
+            href="mailto:kandhalshakil098@gmaill.com?subject=Hello%20there&body=I%20would%20like%20Your%20Managment.%0A%0A%20Please%20send%20more%20Details"><i
+              class="fas fa-envelope"></i>kandhalshakil098@gmail.com</a>
+          <a href="https://www.google.com/maps/dir//%20bangalore,%20india%20-%20560054"><i
+              class="fas fa-map-marker-alt"></i>bangalore, india - 560054</a>
+        </div>
+
+        <div class="box">
+          <h3>follow us</h3>
+          <a href="https://www.facebook.com/profile.php?id=61572410110871"> <i class="fab fa-facebook-f"></i> facebook </a>
+          <a href="https://x.com/ShakilKandhal"> <i class="fab fa-twitter"></i> twitter </a>
+          <a href="https://www.instagram.com/kandhal_shakil_551/"> <i class="fab fa-instagram"></i> instagram </a>
+        </div>
+      </div>
+
+      <!-- theme toggler  -->
+      <div class="theme-toggler">
+        <div class="toggle-btn">
+          <i class="fas fa-sun" onclick="toggle(this)"></i>
+        </div>
+      </div>
+      <div class="credit">
+        created by Sky Event | all rights reserved
+      </div>
+    </section>
+  </div>
+  <div class="Event_booking">
+    <center><img src="logo.jpg" alt="" class="logo"></center>
+    <h1 class="float-right"><i class="fas fa-times text-red mt-3" onclick="close_booking()" style="font-size: 25px; color:red; margin: -10px 10px 5px 80px;"></i></h1>
+    <div class="name">
+      <input type="text" class="Event_input" name="name" placeholder="NAME" autocomplete="off">
+    </div>
+    <div class="email">
+      <input type="email" name="email" class="Event_input" placeholder="EMAIL" autocomplete="off">
+    </div>
+    <div class="phonenumber">
+      <input type="number" name="phone" class="Event_input" placeholder="PHONE NUMBER">
+    </div>
+    <div class="event">
+      <select class="Event_input" name="event-type" id="event">
+        <option value="">Select Event Type</option>
+        <option value="wedding">Wedding</option>
+        <option value="birthday">Birthday Party</option>
+        <option value="corporate">Corporate Event</option>
+        <option value="concert">Concert</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+    <div class="date">
+      <input type="date" name="date" class="Event_input" placeholder="Event Date">
+    </div>
+    <div class="guest"> <input type="number" class="Event_input" name="guest" placeholder="Number of guest">
+    </div>
+
+    <div class="payment">
+      <select class="Event_input" name="payment-method" id="payment">
+        <option value="">Select Payment Method</option>
+        <option value="credit-card">Credit Card</option>
+        <option value="paypal">PayPal</option>
+        <option value="bank-transfer">Bank Transfer</option>
+      </select>
+    </div>
+    <div id="pack">
+      <p class="pack_info"
+        style="font-size:2rem ; margin-left:20px; margin-bottom : 10px ; color:white ; margin-top:-10px; "></p>
+    </div>
+    <div class="submit">
+      <button type="submit" onclick="Event_check()" class="book">BOOK NOW</button>
+    </div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+  <!--JS file-->
+  <script src="app.js"></script>
+</body>
+
+</html>
