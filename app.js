@@ -4,11 +4,13 @@ function toggle(i) {
     i.className = 'fas fa-moon';
     document.querySelector(":root").style.setProperty("--theme-color", "lightgray");
     document.querySelector(":root").style.setProperty("--text-color", "black");
+    document.querySelector(":root").style.setProperty("--image" , "url('https://img.freepik.com/free-photo/top-view-frame-with-white-paper-flowers-background_23-2148427802.jpg')");
   }
   else if (i.className == 'fas fa-moon') {
     i.className = 'fas fa-sun';
-    document.querySelector(":root").style.setProperty("--text-color", "gray");
+    document.querySelector(":root").style.setProperty("--text-color", "white");
     document.querySelector(":root").style.setProperty("--theme-color", "black");
+     document.querySelector(":root").style.setProperty("--image" , "url('https://www.baltana.com/files/wallpapers-16/Black-Background-Design-High-Definition-Wallpaper-40665.jpg')");
   }
 }
 
@@ -18,10 +20,10 @@ var swiper = new Swiper(".home-slider", {
   centeredSlides: true,
   slidesPerView: "auto",
   coverflowEffect: {
-    rotate: 0,
+    rotate: 360,
     stretch: 0,
-    depth: 100,
-    modifier: 2,
+    depth: 180,
+    modifier: 1,
     slideShadows: true,
   },
   loop: true,
@@ -29,6 +31,23 @@ var swiper = new Swiper(".home-slider", {
     delay: 3000,
     disableOnInteraction: false,
   },
+});
+
+var cube = new Swiper(".gallery-slider", {
+  effect: "cube",
+      grabCursor: true,
+      slidesPerView:"auto",
+      cubeEffect: {
+        shadow: true,
+        slideShadows: true,
+        shadowOffset: 50,
+        shadowScale: 1,
+      },
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      loop:true,
 });
 function Event_open(text) {
   document.getElementsByClassName("pack_info")[0].innerHTML ="You have Chose "+ text + " Package";
