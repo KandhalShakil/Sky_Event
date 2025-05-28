@@ -3,8 +3,9 @@
 
 :root {
   --theme-color: black;
-  --text-color: gray;
+  --text-color: white;
   --box-color: aquamarine;
+  --image: url('https://www.baltana.com/files/wallpapers-16/Black-Background-Design-High-Definition-Wallpaper-40665.jpg')
 }
 
 * {
@@ -23,11 +24,15 @@ html {
   overflow-x: hidden;
   scroll-padding-top: 7rem;
   scroll-behavior: smooth;
+  
 }
 
 body {
-  background-color: var(--theme-color);
+  /* background-color: var(--theme-color); */
   color: var(--text-color);
+  background-image: var(--image);
+  /* background-size: cover; */
+  /* background-repeat: ; */
 }
 
 section {
@@ -292,6 +297,12 @@ section {
   width: 100%;
   object-fit: cover;
   border: none;
+  border-radius: 1.5rem;
+  transition: transform 2s;
+}
+
+.gallery .box-container .box img:hover{
+  transform: scale(1.1);
 }
 
 .price .box-container {
