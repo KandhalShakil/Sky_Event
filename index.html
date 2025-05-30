@@ -5,17 +5,19 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Event Organisers | Sky Team</title>
+  <title>Event Organizers | Sky Team</title>
 
-  <!--swiper css-->
+ <!--swiper css-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
   <!--font awesome-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
-  <link rel="icon" type="image/x-icon" href="logo.jpg">
+  <link rel="icon" type="image/x-icon" href="https://github.com/KandhalShakil/Sky_Event/blob/main/logo.jpg?raw=true">
   <!--tailwind css-->
   <script src="https://cdn.tailwindcss.com"></script>
   <!--css file-->
   <link rel="stylesheet" href="styles.css" />
+
+ 
 </head>
 
 <body>
@@ -30,10 +32,11 @@
       <button onclick="closePop()">Close</button>
     </div>
   </center>
+
   <!-- LOGIN AND SIGN Up section -->
   <div class="login-box">
-    <h1 class="float-right "><i class="fas fa-times text-red-900 mb-4 mt-4" onclick="close_login()"></i></h1>
-    <h1 class="mt-20 mb-12 mx-12">Login</h1>
+    <h1 class="float-right"><i class="fas fa-times text-red-900 mb-4 mt-4" onclick="close_login()"></i></h1>
+    <h1>Login</h1>
     <div class="textbox">
       <input type="text" placeholder="Username" name="" value="" class="login_input">
     </div>
@@ -42,13 +45,13 @@
       <input type="checkbox" onclick="show()" class="check">
     </div>
     <input class="login_btn bg-white" type="button" name="" value="Login" onclick="login_check()">
-    <button class="register text-xl">Don't have an account? <span class="text-blue-900" onclick="change()">Sign
+    <button class="register">Don't have an account? <span class="text-blue-900" onclick="change()">Sign
         up</span></button>
   </div>
 
   <div class="register-box">
     <h1 class="float-right"><i class="fas fa-times text-red-900 mb-4 mt-4" onclick="close_register()"></i></h1>
-    <h1 class="mt-20 mb-12 mx-12">Register</h1>
+    <h1>Register</h1>
     <div class="textbox">
       <input type="text" placeholder="Full Name" class="login_input">
     </div>
@@ -64,28 +67,28 @@
       <input type="checkbox" onclick="register_con_show()" class="check">
     </div>
     <input class="login_btn bg-white" type="button" name="" value="Register" onclick="register_check()">
-    <button class="register text-xl">Have an account? <span onclick="change()" class="text-blue-900">Log
-        in</span></button>
+    <button class="register">Have an account? <span onclick="change()" class="text-blue-900">Log in</span></button>
   </div>
 
   <!-- header section starts  -->
   <header class="header">
     <a href="#">
-      <img src="logo.jpg" class="logo rounded-full" width='70px' height='70px'></a>
+      <img src="https://github.com/KandhalShakil/Sky_Event/blob/main/logo.jpg?raw=true" class="logo"></a>
     <nav class="navbar">
-      <a href="#home" class="mx-3 text-white text-3xl cursor-pointer">home</a>
-      <a href="#service" class="mx-3 text-white text-3xl cursor-pointer">service</a>
-      <a href="#about" class="mx-3 text-white text-3xl cursor-pointer">about</a>
-      <a href="#gallery" class="mx-3 text-white text-3xl cursor-pointer">gallery</a>
-      <a href="#price" class="mx-3 text-white text-3xl cursor-pointer">Packages</a>
-      <a href="#review" class="mx-3 text-white text-3xl cursor-pointer">review</a>
-      <a href="#contact" class="mx-3 text-white text-3xl cursor-pointer">contact</a>
-      <a onclick="login_register()" class="login mx-3 text-white text-3xl cursor-pointer"
+      <a href="#home" class="mx-3 text-white cursor-pointer">home</a>
+      <a href="#service" class="mx-3 text-white cursor-pointer">service</a>
+      <a href="#about" class="mx-3 text-white cursor-pointer">about</a>
+      <a href="#gallery" class="mx-3 text-white cursor-pointer">gallery</a>
+      <a href="#price" class="mx-3 text-white cursor-pointer">Packages</a>
+      <a href="#review" class="mx-3 text-white cursor-pointer">review</a>
+      <a href="#contact" class="mx-3 text-white cursor-pointer">contact</a>
+      <a onclick="login_register()" class="login mx-3 text-white cursor-pointer"
         style="background-color:black; padding:10px;border-radius:1.5rem;cursor:pointer">Login</a>
     </nav>
 
     <div id="menu-bars" class="fas fa-bars"></div>
   </header>
+
   <div class="main">
     <!-- home section starts  -->
     <section class="home" id="home">
@@ -142,6 +145,7 @@
       </div>
     </section>
 
+
     <!-- service section starts  -->
     <section class="service" id="service">
       <h1 class="heading">our services</h1>
@@ -168,16 +172,16 @@
           <i class="fas fa-music"></i>
           <h3>entertainment</h3>
           <p>
-            Keep your guests entertained with our curated entertainment options. Whether you’re looking for live bands,
+            Keep your guests entertained with our curated entertainment options. Whether you're looking for live bands,
             DJs, magicians, or performers, we bring the best talent to set the mood and elevate your event experience.
           </p>
         </div>
         <div class="box">
           <i class="fas fa-car"></i>
           <h3>Event vehicles</h3>
-          <p>Arrive in style with our range of luxury vehicles.From sleek limousines to comfortable shuttles for
-            guests,we
-            ensure smooth and classy transportation options for your event.Your journey to and from the venue will be as
+          <p>Arrive in style with our range of luxury vehicles. From sleek limousines to comfortable shuttles for
+            guests, we ensure smooth and classy transportation options for your event. Your journey to and from the
+            venue will be as
             memorable as the event itself.</p>
         </div>
         <div class="box">
@@ -195,8 +199,7 @@
           <p>
             Delight your guests with exquisite catering services tailored to suit your event. Our culinary team offers a
             wide variety of cuisines, ranging from traditional favorites to modern delicacies. With fresh ingredients
-            and
-            impeccable presentation, we ensure a dining experience that your guests will never forget.
+            and impeccable presentation, we ensure a dining experience that your guests will never forget.
           </p>
         </div>
       </div>
@@ -208,7 +211,9 @@
 
       <div class="row">
         <div class="image">
-          <img src="team1.png" alt="" />
+          <img
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="" />
         </div>
 
         <div class="content">
@@ -252,9 +257,7 @@
                 alt="" />
             </div>
             <div class="swiper-slide">
-              <img
-                src="https://www.shutterstock.com/shutterstock/videos/1101496565/thumb/1.jpg?ip=x480"
-                alt="" />
+              <img src="https://www.shutterstock.com/shutterstock/videos/1101496565/thumb/1.jpg?ip=x480" alt="" />
             </div>
           </div>
         </div>
@@ -293,13 +296,10 @@
                 alt="" />
             </div>
             <div class="swiper-slide">
-              <img
-                src="https://i.pinimg.com/736x/b8/47/d9/b847d99b033f62d7b93d11b045cbf52d.jpg"
-                alt="" />
+              <img src="https://i.pinimg.com/736x/b8/47/d9/b847d99b033f62d7b93d11b045cbf52d.jpg" alt="" />
             </div>
             <div class="swiper-slide">
-              <img
-                src="https://t3.ftcdn.net/jpg/02/66/46/24/360_F_266462475_OsBNYnVAq4BYxIaW08t1YwavqKDbFZrU.jpg"
+              <img src="https://t3.ftcdn.net/jpg/02/66/46/24/360_F_266462475_OsBNYnVAq4BYxIaW08t1YwavqKDbFZrU.jpg"
                 alt="" />
             </div>
           </div>
@@ -328,9 +328,7 @@
                 alt="" />
             </div>
             <div class="swiper-slide">
-              <img
-              src="https://thumbs.dreamstime.com/b/wedding-banquet-hall-deluxe-34676247.jpg"
-              alt="" />
+              <img src="https://thumbs.dreamstime.com/b/wedding-banquet-hall-deluxe-34676247.jpg" alt="" />
             </div>
           </div>
         </div>
@@ -523,7 +521,9 @@
       <h1 class="heading">client's review</h1>
       <div class="user-review">
         <div class="user-info">
-          <img src="img1.jpg" alt="" style="height: 100px; width:100px; border-radius:50%" class="max-auto d-block" />
+          <img
+            src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="" />
           <h3>nayan</h3>
           <span>happy customer</span>
           <p>
@@ -534,20 +534,22 @@
           </p>
         </div>
         <div class="user-info">
-          <img src="https://www.zmo.ai/wp-content/uploads/2023/02/ImgCreator.ai-A-hyperrealistic-photo-of-a-young-man-with-a-round-face-olive-green-eyes-small-nose-and-dirty-blonde-hair.-He-is-wearing-a-military-side-cap.-1.png" alt="" style="height: 100px; width:100px; border-radius:50%" class="max-auto d-block" />
+          <img
+            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="" />
           <h3>Om</h3>
           <span>happy customer</span>
           <p>
             I am a planner myself so was very careful about who I hired.
             I wanted someone who was top notch and affordable and Sky team are fantastic. It doesn't
-            get
-            any better than them. She also has a
-            very calming demeanor
+            get any better than them. She also has a very calming demeanor
             which is necessary when dealing with guests, vendors and the tasks at hand. She is the best in the business!
           </p>
         </div>
         <div class="user-info">
-          <img src="https://img.freepik.com/premium-photo/stock-photo-realistic-aigenerated-portrait-young-asian-woman-with-long-black-hair-brown-eyes-smile-her-face-ar-34-style-raw-v-6-job-id-f884b5aae38b4bb0ae7fa5c59d4b23c1_841543-32508.jpg?w=360" alt="" style="height: 100px; width:100px; border-radius:50%" class="max-auto d-block" />
+          <img
+            src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1976&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="" />
           <h3>Lisa</h3>
           <span>happy customer</span>
           <p>
@@ -558,20 +560,21 @@
           </p>
         </div>
         <div class="user-info">
-          <img src="https://www.zmo.ai/wp-content/uploads/2024/03/Activity-options-for-AI-face-generator.webp" alt="" style="height: 100px; width:100px; border-radius:50%" class="max-auto d-block" />
+          <img
+            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="" />
           <h3>nency</h3>
           <span>happy customer</span>
           <p>
             I am a planner myself so was very careful about who I hired.
             I wanted someone who was top notch and affordable and Kalrav Tran and they team are fantastic. It doesn't
-            get
-            any better than them. She also has a
-            very calming demeanor
+            get any better than them. She also has a very calming demeanor
             which is necessary when dealing with guests, vendors and the tasks at hand. She is the best in the business!
           </p>
         </div>
       </div>
     </div>
+
     <!-- contact section starts  -->
     <section class="contact" id="contact">
       <h1 class="heading">contact us</h1>
@@ -647,10 +650,11 @@
       </div>
     </section>
   </div>
+
   <div class="Event_booking">
-    <center><img src="logo.jpg" alt="" class="logo"></center>
+    <img src="https://github.com/KandhalShakil/Sky_Event/blob/main/logo.jpg?raw=true" alt="" class="logo">
     <h1 class="float-right"><i class="fas fa-times text-red mt-3" onclick="close_booking()"
-        style="font-size: 25px; color:red; margin: -10px 10px 5px 80px;"></i></h1>
+        style="font-size: 25px; color:red; margin: -10px 10px 5px 0;"></i></h1>
     <div class="name">
       <input type="text" class="Event_input" name="name" placeholder="NAME" autocomplete="off">
     </div>
@@ -673,9 +677,9 @@
     <div class="date">
       <input type="date" name="date" class="Event_input" placeholder="Event Date">
     </div>
-    <div class="guest"> <input type="number" class="Event_input" name="guest" placeholder="Number of guest">
+    <div class="guest">
+      <input type="number" class="Event_input" name="guest" placeholder="Number of guest">
     </div>
-
     <div class="payment">
       <select class="Event_input" name="payment-method" id="payment">
         <option value="">Select Payment Method</option>
@@ -685,8 +689,7 @@
       </select>
     </div>
     <div id="pack">
-      <p class="pack_info"
-        style="font-size:2rem ; margin-left:20px; margin-bottom : 10px ; color:white ; margin-top:-10px; "></p>
+      <p class="pack_info"></p>
     </div>
     <div class="submit">
       <button type="submit" onclick="Event_check()" class="book">BOOK NOW</button>
@@ -695,9 +698,7 @@
 
   <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-
-  <!--JS file-->
-  <script src="app.js"></script>
+   <script src="app.js"></script>
 </body>
 
 </html>
