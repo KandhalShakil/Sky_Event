@@ -21,53 +21,169 @@
 </head>
 
 <body>
-  <center>
-    <div class="popup">
-      <p>
-        <center class="alert">Message Sent! 📨</center>
-        <br>
-      <p class="massage"></p>
-      </p>
+  <!-- Popup -->
+  <div class="popup">
+    <p>
+      <center class="alert">Message Sent! 📨</center>
       <br>
-      <button onclick="closePop()">Close</button>
-    </div>
-  </center>
-
-  <!-- LOGIN AND SIGN Up section -->
-  <div class="login-box">
-    <h1 class="float-right"><i class="fas fa-times text-red-900 mb-4 mt-4" onclick="close_login()"></i></h1>
-    <h1>Login</h1>
-    <div class="textbox">
-      <input type="text" placeholder="Username" name="" value="" class="login_input">
-    </div>
-    <div class="textbox">
-      <input type="password" placeholder="Password" name="" value="" class="login_input">
-      <input type="checkbox" onclick="show()" class="check">
-    </div>
-    <input class="login_btn bg-white" type="button" name="" value="Login" onclick="login_check()">
-    <button class="register">Don't have an account? <span class="text-blue-900" onclick="change()">Sign
-        up</span></button>
+    <p class="massage"></p>
+    <br>
+    <button onclick="closePop()">Close</button>
   </div>
 
-  <div class="register-box">
-    <h1 class="float-right"><i class="fas fa-times text-red-900 mb-4 mt-4" onclick="close_register()"></i></h1>
-    <h1>Register</h1>
-    <div class="textbox">
-      <input type="text" placeholder="Full Name" class="login_input">
+  <!-- Login Modal -->
+  <div class="modal" id="loginModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Login</h2>
+        <button class="close-btn" onclick="closeModal('loginModal')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="login-username">Username</label>
+          <div class="input-icon">
+            <i class="fas fa-user"></i>
+            <input type="text" id="login-username" class="form-control" placeholder="Enter your username" required>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="login-password">Password</label>
+          <div class="input-icon">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="login-password" class="form-control" placeholder="Enter your password" required>
+            <button class="password-toggle" type="button" onclick="togglePassword('login-password')">
+              <i class="fas fa-eye"></i>
+            </button>
+          </div>
+        </div>
+        
+        <button class="btn-submit" onclick="login_check()">Login</button>
+        
+        <div class="form-footer">
+          <p>Don't have an account? <a href="javascript:void(0)" onclick="showModal('registerModal')">Register Now</a></p>
+        </div>
+      </div>
     </div>
-    <div class="textbox">
-      <input type="email" placeholder="Mail ID" class="login_input">
+  </div>
+
+  <!-- Register Modal -->
+  <div class="modal" id="registerModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Register</h2>
+        <button class="close-btn" onclick="closeModal('registerModal')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="register-name">Full Name</label>
+          <div class="input-icon">
+            <i class="fas fa-user"></i>
+            <input type="text" id="register-name" class="form-control" placeholder="Enter your full name" required>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="register-email">Email</label>
+          <div class="input-icon">
+            <i class="fas fa-envelope"></i>
+            <input type="email" id="register-email" class="form-control" placeholder="Enter your email" required>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="register-password">Password</label>
+          <div class="input-icon">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="register-password" class="form-control" placeholder="Create a password" required>
+            <button class="password-toggle" type="button" onclick="togglePassword('register-password')">
+              <i class="fas fa-eye"></i>
+            </button>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="register-confirm">Confirm Password</label>
+          <div class="input-icon">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="register-confirm" class="form-control" placeholder="Confirm your password" required>
+            <button class="password-toggle" type="button" onclick="togglePassword('register-confirm')">
+              <i class="fas fa-eye"></i>
+            </button>
+          </div>
+        </div>
+        
+        <button class="btn-submit" onclick="register_check()">Register</button>
+        
+        <div class="form-footer">
+          <p>Already have an account? <a href="javascript:void(0)" onclick="showModal('loginModal')">Login Now</a></p>
+        </div>
+      </div>
     </div>
-    <div class="textbox">
-      <input type="password" placeholder="Password" class="login_input">
-      <input type="checkbox" onclick="register_pass_show()" class="check">
+  </div>
+
+  <!-- Booking Modal -->
+  <div class="modal" id="bookingModal">
+    <div class="modal-content">
+      <div class="booking-header">
+        <h2>Event Booking</h2>
+        <button class="close-btn" onclick="closeModal('bookingModal')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="package-info">
+          <i class="fas fa-info-circle"></i> <span id="packageName">You have selected the Premium Package</span>
+        </div>
+        
+        <div class="form-group">
+          <label for="booking-name">Full Name</label>
+          <input type="text" id="booking-name" class="form-control" placeholder="Enter your full name" required>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-col">
+            <div class="form-group">
+              <label for="booking-email">Email Address</label>
+              <input type="email" id="booking-email" class="form-control" placeholder="Enter your email" required>
+            </div>
+          </div>
+          
+          <div class="form-col">
+            <div class="form-group">
+              <label for="booking-phone">Phone Number</label>
+              <input type="tel" id="booking-phone" class="form-control" placeholder="Enter your phone" required>
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-col">
+            <div class="form-group">
+              <label for="booking-date">Event Date</label>
+              <input type="date" id="booking-date" class="form-control" required>
+            </div>
+          </div>
+          
+          <div class="form-col">
+            <div class="form-group">
+              <label for="booking-guests">Number of Guests</label>
+              <input type="number" id="booking-guests" class="form-control" placeholder="Enter number of guests" min="1" required>
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="booking-payment">Payment Method</label>
+          <select id="booking-payment" class="form-control" required>
+            <option value="">Select Payment Method</option>
+            <option value="credit-card">Credit Card</option>
+            <option value="paypal">PayPal</option>
+            <option value="bank-transfer">Bank Transfer</option>
+          </select>
+        </div>
+        
+        <button class="btn-submit" onclick="Event_check()">Book Now</button>
+      </div>
     </div>
-    <div class="textbox">
-      <input type="password" placeholder="Confirm password" class="login_input">
-      <input type="checkbox" onclick="register_con_show()" class="check">
-    </div>
-    <input class="login_btn bg-white" type="button" name="" value="Register" onclick="register_check()">
-    <button class="register">Have an account? <span onclick="change()" class="text-blue-900">Log in</span></button>
   </div>
 
   <!-- header section starts  -->
@@ -75,23 +191,23 @@
     <a href="#">
       <img src="https://github.com/KandhalShakil/Sky_Event/blob/main/logo.jpg?raw=true" class="logo"></a>
     <nav class="navbar">
-      <a href="#home" class="mx-3 text-white cursor-pointer">home</a>
-      <a href="#service" class="mx-3 text-white cursor-pointer">service</a>
-      <a href="#about" class="mx-3 text-white cursor-pointer">about</a>
-      <a href="#gallery" class="mx-3 text-white cursor-pointer">gallery</a>
-      <a href="#price" class="mx-3 text-white cursor-pointer">Packages</a>
-      <a href="#review" class="mx-3 text-white cursor-pointer">review</a>
-      <a href="#contact" class="mx-3 text-white cursor-pointer">contact</a>
-      <a onclick="login_register()" class="login mx-3 text-white cursor-pointer"
-        style="background-color:black; padding:10px;border-radius:1.5rem;cursor:pointer">Login</a>
+      <a href="#home">home</a>
+      <a href="#service">service</a>
+      <a href="#about">about</a>
+      <a href="#gallery">gallery</a>
+      <a href="#price">Packages</a>
+      <a href="#review">review</a>
+      <a href="#contact">contact</a>
     </nav>
+    
+    <button class="login-btn" onclick="showModal('loginModal')">Login</button>
 
-    <div id="menu-bars" class="fas fa-bars"></div>
+    <div id="menu-bars" class="fas fa-bars" onclick="toggleNavbar()"></div>
   </header>
 
   <div class="main">
     <!-- home section starts  -->
-    <section class="home" id="home">
+      <section class="home" id="home">
       <div class="content">
         <h3>
           where your ideas take off
@@ -145,10 +261,9 @@
       </div>
     </section>
 
-
     <!-- service section starts  -->
     <section class="service" id="service">
-      <h1 class="heading">our services</h1>
+      <h1 class="heading">our <span>services</span></h1>
 
       <div class="box-container">
         <div class="box">
@@ -207,13 +322,13 @@
 
     <!-- about section starts  -->
     <section class="about" id="about">
-      <h1 class="heading"> about us</h1>
+      <h1 class="heading"> about <span>us</span></h1>
 
       <div class="row">
         <div class="image">
           <img
             src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="" />
+            alt="Our Team" />
         </div>
 
         <div class="content">
@@ -237,7 +352,7 @@
 
     <!-- gallery section starts  -->
     <section class="gallery" id="gallery">
-      <h1 class="heading">our gallery</h1>
+      <h1 class="heading">our <span>gallery</span></h1>
       <div class="box-container">
         <div class="box swiper-container gallery-slider">
           <div class="swiper-wrapper">
@@ -463,133 +578,125 @@
 
     <!-- packages section starts  -->
     <section class="price" id="price">
-      <h1 class="heading">our different Packages</h1>
+      <h1 class="heading">our <span>packages</span></h1>
 
       <div class="box-container">
         <div class="box">
           <h3 class="title">Basic</h3>
-          <h3 class="amount font-bold">₹4,80,000.00</h3>
+          <h3 class="amount">₹4,80,000.00</h3>
           <ul>
             <li><i class="fas fa-times"></i>Full service</li>
             <li><i class="fas fa-check"></i>Venue + basic decorations</li>
             <li><i class="fas fa-check"></i>Basic food according location</li>
             <li><i class="fas fa-check"></i>Cars</li>
           </ul>
-          <button class="btn" onclick="Event_open('Basic')">check out</button>
+          <button class="btn" onclick="Event_open('Basic')">Book Now</button>
         </div>
 
         <div class="box">
           <h3 class="title">Prime</h3>
-          <h3 class="amount font-bold">₹6,80,000.00</h3>
+          <h3 class="amount">₹6,80,000.00</h3>
           <ul>
             <li><i class="fas fa-times"></i>Full service</li>
             <li><i class="fas fa-check"></i>Venue + basic decorations</li>
             <li><i class="fas fa-check"></i>5 countries food</li>
             <li><i class="fas fa-check"></i>Luxury Cars</li>
           </ul>
-          <button class="btn" onclick="Event_open('Prime')">check out</button>
+          <button class="btn" onclick="Event_open('Prime')">Book Now</button>
         </div>
 
         <div class="box">
           <h3 class="title">Luxury</h3>
-          <h3 class="amount font-bold">₹50,00,000.00</h3>
+          <h3 class="amount">₹50,00,000.00</h3>
           <ul>
             <li><i class="fas fa-times"></i>Full service</li>
             <li><i class="fas fa-check"></i>Venue + Luxury decorations</li>
             <li><i class="fas fa-check"></i>15 countries food</li>
-            <li><i class="fas fa-check"></i>Luxury Cars , 2 AeroPlan</li>
+            <li><i class="fas fa-check"></i>Luxury Cars , 2 Airplane</li>
           </ul>
-          <button class="btn" onclick="Event_open('Luxury')">check out</button>
+          <button class="btn" onclick="Event_open('Luxury')">Book Now</button>
         </div>
 
         <div class="box">
           <h3 class="title">Ultra</h3>
-          <h3 class="amount font-bold">₹1,00,00,000.00</h3>
+          <h3 class="amount">₹1,00,00,000.00</h3>
           <ul>
             <li><i class="fas fa-check"></i>Full service</li>
             <li><i class="fas fa-check"></i>Venue + Ultra Luxury decorations</li>
             <li><i class="fas fa-check"></i>95+ countries food</li>
-            <li><i class="fas fa-check"></i>Ultra Luxury Cars , Cruse , AeroPlan</li>
+            <li><i class="fas fa-check"></i>Ultra Luxury Cars , Cruse , Airplane</li>
           </ul>
-          <button class="btn" onclick="Event_open('Ultra')">check out</button>
+          <button class="btn" onclick="Event_open('Ultra')">Book Now</button>
         </div>
       </div>
     </section>
 
     <!-- Review section -->
-    <div class="review container" id="review">
-      <h1 class="heading">client's review</h1>
+    <section class="review" id="review">
+      <h1 class="heading">client's <span>review</span></h1>
       <div class="user-review">
         <div class="user-info">
           <img
             src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="" />
+            alt="Nayan" />
           <h3>nayan</h3>
           <span>happy customer</span>
           <p>
             I highly recommend hiring a wedding coordinator for the day of. You don't want to
-            deal with the craziness. You also don't want a friend or relative helping out as the coordinator
-            because they will not be able to fully enjoy the wedding as a guest. I learned that firsthand when I
-            was the coordinator for my friend's wedding.
+            deal with the craziness. You also don't want a friend or relative helping out as the coordinator.
           </p>
         </div>
         <div class="user-info">
           <img
             src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="" />
+            alt="Om" />
           <h3>Om</h3>
           <span>happy customer</span>
           <p>
             I am a planner myself so was very careful about who I hired.
-            I wanted someone who was top notch and affordable and Sky team are fantastic. It doesn't
-            get any better than them. She also has a very calming demeanor
-            which is necessary when dealing with guests, vendors and the tasks at hand. She is the best in the business!
+            I wanted someone who was top notch and affordable and Sky team are fantastic.
           </p>
         </div>
         <div class="user-info">
           <img
             src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1976&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="" />
+            alt="Lisa" />
           <h3>Lisa</h3>
           <span>happy customer</span>
           <p>
             I highly recommend hiring a wedding coordinator for the day of. You don't want to
-            deal with the craziness. You also don't want a friend or relative helping out as the coordinator
-            because they will not be able to fully enjoy the wedding as a guest. I learned that firsthand when I
-            was the coordinator for my friend's wedding.
+            deal with the craziness. You also don't want a friend or relative helping out.
           </p>
         </div>
         <div class="user-info">
           <img
             src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="" />
-          <h3>nency</h3>
+            alt="Nancy" />
+          <h3>Nancy</h3>
           <span>happy customer</span>
           <p>
             I am a planner myself so was very careful about who I hired.
-            I wanted someone who was top notch and affordable and Kalrav Tran and they team are fantastic. It doesn't
-            get any better than them. She also has a very calming demeanor
-            which is necessary when dealing with guests, vendors and the tasks at hand. She is the best in the business!
+            I wanted someone who was top notch and affordable and Kalrav Tran and they team are fantastic.
           </p>
         </div>
       </div>
-    </div>
+    </section>
 
     <!-- contact section starts  -->
     <section class="contact" id="contact">
-      <h1 class="heading">contact us</h1>
+      <h1 class="heading">contact <span>us</span></h1>
 
-      <form action="">
+      <form>
         <div class="inputBox">
-          <input type="text" placeholder="name" required class="input" />
-          <input type="email" placeholder="email" required class="input" />
+          <input type="text" placeholder="Your Name" required class="input" />
+          <input type="email" placeholder="Your Email" required class="input" />
         </div>
         <div class="inputBox">
-          <input type="number" placeholder="number" required class="input" />
-          <input type="text" placeholder="subject" required class="input" />
+          <input type="tel" placeholder="Phone Number" required class="input" />
+          <input type="text" placeholder="Subject" required class="input" />
         </div>
-        <textarea placeholder="Query" id="" cols="30" rows="10"></textarea>
-        <input value="send us" class="btn" onclick="check()" style="width: 130px;" type="submit"/>
+        <textarea placeholder="Your Message" cols="30" rows="10"></textarea>
+        <button class="btn" type="button" onclick="check()">Send Message</button>
       </form>
     </section>
 
@@ -597,7 +704,7 @@
     <section class="footer">
       <div class="box-container">
         <div class="box">
-          <h3>branches</h3>
+         <h3>branches</h3>
           <a href="https://www.google.com/maps/dir//%20bangalore,%20india"> <i class="fas fa-map-marker-alt"></i>
             bangalore </a>
           <a href="https://www.google.com/maps/dir//Hyderabad,%20India"><i class="fas fa-map-marker-alt"></i> hyderabad
@@ -611,7 +718,7 @@
 
         <div class="box">
           <h3>quick links</h3>
-          <a href="#"> <i class="fas fa-arrow-right"></i> home </a>
+          <a href="#home"> <i class="fas fa-arrow-right"></i> home </a>
           <a href="#service"> <i class="fas fa-arrow-right"></i> service </a>
           <a href="#about"> <i class="fas fa-arrow-right"></i> about </a>
           <a href="#gallery"> <i class="fas fa-arrow-right"></i> gallery </a>
@@ -622,83 +729,27 @@
 
         <div class="box">
           <h3>contact info</h3>
-          <a href="tel:9725845511"><i class="fas fa-phone"></i>+91 9725845511</a>
-          <a
-            href="mailto:kandhalshakil098@gmaill.com?subject=Hello%20there&body=I%20would%20like%20Your%20Managment.%0A%0A%20Please%20send%20more%20Details"><i
-              class="fas fa-envelope"></i>kandhalshakil098@gmail.com</a>
-          <a href="https://www.google.com/maps/dir//%20bangalore,%20india%20-%20560054"><i
-              class="fas fa-map-marker-alt"></i>bangalore, india - 560054</a>
+          <a href="tel:9725845511"><i class="fas fa-phone"></i> +91 9725845511</a>
+          <a href="mailto:kandhalshakil098@gmail.com"><i class="fas fa-envelope"></i> kandhalshakil098@gmail.com</a>
+          <a href="https://www.google.com/maps/dir//%20bangalore,%20india%20-%20560054"><i class="fas fa-map-marker-alt"></i> bangalore, india - 560054</a>
         </div>
 
         <div class="box">
           <h3>follow us</h3>
-          <a href="https://www.facebook.com/profile.php?id=61572410110871"> <i class="fab fa-facebook-f"></i> facebook
-          </a>
+          <a href="https://www.facebook.com/profile.php?id=61572410110871"> <i class="fab fa-facebook-f"></i> facebook </a>
           <a href="https://x.com/ShakilKandhal"> <i class="fab fa-twitter"></i> twitter </a>
           <a href="https://www.instagram.com/kandhal_shakil_551/"> <i class="fab fa-instagram"></i> instagram </a>
         </div>
       </div>
 
-      <!-- theme toggler  -->
-      <div class="theme-toggler">
-        <div class="toggle-btn">
-          <i class="fas fa-sun" onclick="toggle(this)"></i>
-        </div>
-      </div>
       <div class="credit">
-        created by Sky Event | all rights reserved
+        created by <span>Sky Event</span> | all rights reserved
       </div>
     </section>
   </div>
 
-  <div class="Event_booking">
-    <img src="https://github.com/KandhalShakil/Sky_Event/blob/main/logo.jpg?raw=true" alt="" class="logo">
-    <h1 class="float-right"><i class="fas fa-times text-red mt-3" onclick="close_booking()"
-        style="font-size: 25px; color:red; margin: -10px 10px 5px 0;"></i></h1>
-    <div class="name">
-      <input type="text" class="Event_input" name="name" placeholder="NAME" autocomplete="off">
-    </div>
-    <div class="email">
-      <input type="email" name="email" class="Event_input" placeholder="EMAIL" autocomplete="off">
-    </div>
-    <div class="phonenumber">
-      <input type="number" name="phone" class="Event_input" placeholder="PHONE NUMBER">
-    </div>
-    <div class="event">
-      <select class="Event_input" name="event-type" id="event">
-        <option value="">Select Event Type</option>
-        <option value="wedding">Wedding</option>
-        <option value="birthday">Birthday Party</option>
-        <option value="corporate">Corporate Event</option>
-        <option value="concert">Concert</option>
-        <option value="other">Other</option>
-      </select>
-    </div>
-    <div class="date">
-      <input type="date" name="date" class="Event_input" placeholder="Event Date">
-    </div>
-    <div class="guest">
-      <input type="number" class="Event_input" name="guest" placeholder="Number of guest">
-    </div>
-    <div class="payment">
-      <select class="Event_input" name="payment-method" id="payment">
-        <option value="">Select Payment Method</option>
-        <option value="credit-card">Credit Card</option>
-        <option value="paypal">PayPal</option>
-        <option value="bank-transfer">Bank Transfer</option>
-      </select>
-    </div>
-    <div id="pack">
-      <p class="pack_info"></p>
-    </div>
-    <div class="submit">
-      <button type="submit" onclick="Event_check()" class="book">BOOK NOW</button>
-    </div>
-  </div>
-
   <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-   <script src="app.js"></script>
+  <script src="app.js"></script>
 </body>
-
 </html>
