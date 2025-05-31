@@ -1,12 +1,5 @@
-let pass = false;
-
-document.addEventListener('DOMContentLoaded', function () {
-  document.querySelector('#menu-bars').onclick = () => {
-    document.querySelector('.navbar').classList.toggle('active');
-  };
-});
-
-var swiper = new Swiper(".home-slider", {
+// Initialize Swiper
+const homeSlider = new Swiper('.home-slider', {
   effect: "cube",
   grabCursor: true,
   centeredSlides: true,
@@ -14,8 +7,8 @@ var swiper = new Swiper(".home-slider", {
   cubeEffect: {
     shadow: true,
     slideShadows: true,
-    shadowOffset: 50,
-    shadowScale: 1,
+    shadowOffset: 20,
+    shadowScale: 0.94,
   },
   loop: true,
   autoplay: {
@@ -41,235 +34,157 @@ var cube = new Swiper(".gallery-slider", {
   loop: true,
 });
 
-// Theme toggle function
-function toggle(i) {
-  if (i.className == 'fas fa-sun') {
-    i.className = 'fas fa-moon';
-    document.querySelector(":root").style.setProperty("--theme-color", "lightgray");
-    document.querySelector(":root").style.setProperty("--text-color", "black");
-    document.querySelector(":root").style.setProperty("--image", "url('https://img.freepik.com/free-photo/top-view-frame-with-white-paper-flowers-background_23-2148427802.jpg')");
-  } else if (i.className == 'fas fa-moon') {
-    i.className = 'fas fa-sun';
-    document.querySelector(":root").style.setProperty("--text-color", "white");
-    document.querySelector(":root").style.setProperty("--theme-color", "black");
-    document.querySelector(":root").style.setProperty("--image", "url('https://www.baltana.com/files/wallpapers-16/Black-Background-Design-High-Definition-Wallpaper-40665.jpg')");
+// Modal functions
+function showModal(modalId) {
+  closeAllModals();
+  const modal = document.getElementById(modalId);
+  modal.classList.add('active');
+}
+
+function closeModal(modalId) {
+  const modal = document.getElementById(modalId);
+  modal.classList.remove('active');
+}
+
+function closeAllModals() {
+  document.querySelectorAll('.modal').forEach(modal => {
+    modal.classList.remove('active');
+  });
+}
+
+// Toggle password visibility
+function togglePassword(inputId) {
+  const input = document.getElementById(inputId);
+  const toggleIcon = input.nextElementSibling.querySelector('i');
+
+  if (input.type === "password") {
+    input.type = "text";
+    toggleIcon.classList.replace('fa-eye', 'fa-eye-slash');
+  } else {
+    input.type = "password";
+    toggleIcon.classList.replace('fa-eye-slash', 'fa-eye');
   }
 }
 
-// Event booking functions
-function Event_open(text) {
-  document.getElementsByClassName("pack_info")[0].innerHTML = "You have Chose " + text + " Package";
-  document.getElementsByClassName("Event_booking")[0].style.display = 'block';
-  document.getElementsByClassName('main')[0].style.filter = "blur(10px)";
-  document.getElementsByClassName('header')[0].style.filter = "blur(10px)";
-  document.getElementsByClassName('main')[0].style.pointerEvents = "none";
-  document.getElementsByClassName('header')[0].style.pointerEvents = "none";
+// Toggle navbar on mobile
+function toggleNavbar() {
+  document.querySelector('.navbar').classList.toggle('active');
 }
 
-function close_booking() {
-  document.getElementsByClassName('Event_booking')[0].style.display = "none";
-  document.getElementsByClassName('main')[0].style.filter = "blur(0px)";
-  document.getElementsByClassName('main')[0].style.pointerEvents = "auto";
-  document.getElementsByClassName('header')[0].style.pointerEvents = "auto";
-  document.getElementsByClassName('header')[0].style.filter = "blur(0px)";
+// Event booking functions
+function Event_open(packageName) {
+  document.getElementById('packageName').textContent = `You have selected the ${packageName} Package`;
+  showModal('bookingModal');
 }
 
 // Popup functions
 function pop(text) {
-  document.getElementsByClassName("massage")[0].innerHTML = text;
+  document.querySelector('.massage').textContent = text;
   document.getElementsByClassName("popup")[0].style.display = "block";
 }
 
 function closePop() {
   document.getElementsByClassName('popup')[0].style.display = "none";
-  if (pass) {
-    document.getElementsByClassName('Event_booking')[0].style.display = "none";
-    document.getElementsByClassName('main')[0].style.filter = "blur(0px)";
-    document.getElementsByClassName('main')[0].style.pointerEvents = "auto";
-    document.getElementsByClassName('header')[0].style.pointerEvents = "auto";
-    document.getElementsByClassName('header')[0].style.filter = "blur(0px)";
-  }
 }
 
 // Form validation functions
 function check() {
-  let pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   let name = document.getElementsByClassName('input')[0].value;
   let email = document.getElementsByClassName('input')[1].value;
   let number = document.getElementsByClassName('input')[2].value;
   let subject = document.getElementsByClassName('input')[3].value;
   let Query = document.getElementsByTagName('textarea')[0].value;
+  const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  if (name == "" || email == "" || number == "" || subject == "" || Query == "") {
+  if (name === "" || email === "" || number === "" || subject === "" || query === "") {
     pop("All fields are required");
+  } else if (!pattern.test(email)) {
+    pop("Please enter a valid email address");
+  } else if (number.length !== 10) {
+    pop("Please enter a valid 10-digit phone number");
   } else {
-    if (!pattern.test(email)) {
-      pop("Please enter valid email")
-    } else if (number.length != 10) {
-      pop("Please enter a valid number")
-    } else {
-      pop('Thank you for reaching out! We will get back to you as soon as possible.')
-      document.getElementsByClassName('input')[0].value = "";
-      document.getElementsByClassName('input')[1].value = "";
-      document.getElementsByClassName('input')[2].value = "";
-      document.getElementsByClassName('input')[3].value = "";
-      document.getElementsByTagName('textarea')[0].value = "";
-    }
+    pop('Thank you for reaching out! We will get back to you as soon as possible.');
+    // Clear form
+    document.querySelector('.contact form').reset();
   }
 }
 
 function Event_check() {
-  let name = document.getElementsByClassName("Event_input")[0].value;
-  let email = document.getElementsByClassName("Event_input")[1].value;
-  let phone = document.getElementsByClassName("Event_input")[2].value;
-  let type = document.getElementsByClassName("Event_input")[3].value;
-  let date = document.getElementsByClassName("Event_input")[4].value;
-  let guest = document.getElementsByClassName("Event_input")[5].value;
-  let payment = document.getElementsByClassName("Event_input")[6].value;
+  const name = document.getElementById('booking-name').value;
+  const email = document.getElementById('booking-email').value;
+  const phone = document.getElementById('booking-phone').value;
+  const date = document.getElementById('booking-date').value;
+  const guests = document.getElementById('booking-guests').value;
+  const payment = document.getElementById('booking-payment').value;
+  const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const today = new Date();
+  const eventDate = new Date(date);
 
-  let popup = document.getElementsByClassName('popup')[0]
-  let pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  today_date = new Date();
-
-  if (name != "" && guest != "" && payment != "" && email != "" && phone != "" && type != "" && date != "") {
-    event_date = new Date(date);
-    if (phone.length != 10) {
-      pop("Please Enter Valid Number")
-    } else if (!pattern.test(email)) {
-      pop("Please Enter Email")
-    } else if (today_date.getTime() >= event_date.getTime()) {
-      pop("Please Choose valid Date")
-    }
-    else {
-      document.getElementsByClassName("alert")[0].innerHTML = ""
-      pop("Thanks for choosing our site")
-      pass = true;
-      document.getElementsByClassName("Event_input")[0].value = "";
-      document.getElementsByClassName("Event_input")[1].value = "";
-      document.getElementsByClassName("Event_input")[2].value = "";
-      document.getElementsByClassName("Event_input")[3].value = "";
-      document.getElementsByClassName("Event_input")[4].value = "";
-      document.getElementsByClassName("Event_input")[5].value = "";
-      document.getElementsByClassName("Event_input")[6].value = "";
-    }
+  if (!name || !email || !phone || !date || !guests || !payment) {
+    pop("Please fill all fields");
+  } else if (!pattern.test(email)) {
+    pop("Please enter a valid email address");
+  } else if (phone.length !== 10) {
+    pop("Please enter a valid 10-digit phone number");
+  } else if (eventDate < today) {
+    pop("Please choose a future date");
   } else {
-    pop("Plese Fill Blank Filed")
+    pop("Thanks for choosing our site! Your booking has been confirmed.");
+    closeModal('bookingModal');
+    // Clear form
+    document.getElementById('booking-name').value = "";
+    document.getElementById('booking-email').value = "";
+    document.getElementById('booking-phone').value = "";
+    document.getElementById('booking-date').value = "";
+    document.getElementById('booking-guests').value = "";
+    document.getElementById('booking-payment').selectedIndex = 0;
   }
 }
 
 // Login/register functions
-function login_register() {
-  document.getElementsByClassName('login-box')[0].style.display = "block";
-  document.getElementsByClassName('main')[0].style.filter = "blur(10px)";
-  document.getElementsByClassName('header')[0].style.filter = "blur(10px)";
-  document.getElementsByClassName('main')[0].style.pointerEvents = "none";
-  document.getElementsByClassName('header')[0].style.pointerEvents = "none";
-}
-
-function close_login() {
-  document.getElementsByClassName('login-box')[0].style.display = "none";
-  document.getElementsByClassName('main')[0].style.filter = "blur(0px)";
-  document.getElementsByClassName('main')[0].style.pointerEvents = "auto";
-  document.getElementsByClassName('header')[0].style.pointerEvents = "auto";
-  document.getElementsByClassName('header')[0].style.filter = "blur(0px)";
-}
-
-function close_register() {
-  document.getElementsByClassName('register-box')[0].style.display = "none";
-  document.getElementsByClassName('main')[0].style.filter = "blur(0px)";
-  document.getElementsByClassName('main')[0].style.pointerEvents = "auto";
-  document.getElementsByClassName('header')[0].style.pointerEvents = "auto";
-  document.getElementsByClassName('header')[0].style.filter = "blur(0px)";
-}
-
-function show() {
-  var x = document.getElementsByClassName('login_input')[1];
-  if (x.type === "password") {
-    x.type = "text";
-  } else {
-    x.type = "password";
-  }
-}
-
-function register_pass_show() {
-  let x = document.getElementsByClassName('login_input')[4]
-  if (x.type === "password") {
-    x.type = "text";
-  } else {
-    x.type = "password";
-  }
-}
-
-function register_con_show() {
-  let x = document.getElementsByClassName('login_input')[5]
-  if (x.type === "password") {
-    x.type = "text";
-  } else {
-    x.type = "password";
-  }
-}
-
 function login_check() {
-  let x = document.getElementsByClassName('login_input')[0].value;
-  let y = document.getElementsByClassName('login_input')[1].value;
-  if (x == "" || y == "") {
-    pop('Please Fill All Fields');
-    document.getElementsByClassName('check')[0].checked = false;
-    document.getElementsByClassName('login_input')[1].type = 'password';
+  const username = document.getElementById('login-username').value;
+  const password = document.getElementById('login-password').value;
+
+  if (!username || !password) {
+    pop('Please fill all fields');
   } else {
-    document.getElementsByClassName('login-box')[0].style.display = "none";
-    document.getElementsByClassName('main')[0].style.filter = "blur(0px)";
-    document.getElementsByClassName('main')[0].style.pointerEvents = "auto";
-    document.getElementsByClassName('header')[0].style.pointerEvents = "auto";
-    document.getElementsByClassName('header')[0].style.filter = "blur(0px)";
-    document.getElementsByClassName('login')[0].style.backgroundColor = 'none'
-    document.getElementsByClassName('login')[0].style.pointer = 'default'
-    document.getElementsByClassName('login')[0].innerHTML = "HELLO , " + x;
-    document.getElementsByClassName('login')[0].onclick = 'none';
+    pop('Login successful! Welcome back.');
+    closeModal('loginModal');
+    // Update UI
+    document.querySelector('.login-btn').textContent = `Hi, ${username}`;
+    document.querySelector('.login-btn').style.backgroundColor = 'transparent';
+    document.querySelector('.login-btn').style.border = '2px solid var(--accent)';
+    document.querySelector('.login-btn').disabled = true;
   }
 }
 
 function register_check() {
-  let pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  let name = document.getElementsByClassName('login_input')[2].value;
-  let mail = document.getElementsByClassName('login_input')[3].value;
-  document.getElementsByClassName('login_input')[4].type = 'text';
-  let password = document.getElementsByClassName('login_input')[4].value
-  document.getElementsByClassName('login_input')[4].type = 'password';
-  document.getElementsByClassName('login_input')[5].type = 'text';
-  let con_password = document.getElementsByClassName('login_input')[5].value;
-  document.getElementsByClassName('login_input')[5].type = 'password';
+  const name = document.getElementById('register-name').value;
+  const email = document.getElementById('register-email').value;
+  const password = document.getElementById('register-password').value;
+  const confirmPassword = document.getElementById('register-confirm').value;
+  const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  document.getElementsByClassName('check')[1].checked = false;
-  document.getElementsByClassName('check')[2].checked = false;
-  document.getElementsByClassName('login_input')[4].type = 'password';
-  document.getElementsByClassName('login_input')[5].type = 'password';
-
-  if (name == "" || mail == "" || con_password == "" || password == "") {
-    pop('Plese Fill All Fields');
-  } else if (con_password != password) {
-    pop('Plese enter same password')
-  } else if (!pattern.test(mail)) {
-    pop("Please enter valid email")
+  if (!name || !email || !password || !confirmPassword) {
+    pop('Please fill all fields');
+  } else if (password !== confirmPassword) {
+    pop('Passwords do not match');
+  } else if (!pattern.test(email)) {
+    pop('Please enter a valid email address');
   } else {
-    document.getElementsByClassName('register-box')[0].style.display = "none";
-    document.getElementsByClassName('main')[0].style.filter = "blur(0px)";
-    document.getElementsByClassName('header')[0].style.filter = "blur(0px)";
-    document.getElementsByClassName('main')[0].style.pointerEvents = "auto";
-    document.getElementsByClassName('header')[0].style.pointerEvents = "auto";
-    document.getElementsByClassName('login')[0].style.backgroundColor = 'none'
-    document.getElementsByClassName('login')[0].style.pointer = 'defualt'
-    document.getElementsByClassName('login')[0].innerHTML = "HELLO , " + name;
-    document.getElementsByClassName('login')[0].onclick = 'none';
+    pop('Registration successful! Welcome to Sky Event.');
+    closeModal('registerModal');
+    // Update UI
+    document.querySelector('.login-btn').textContent = `Hi, ${name}`;
+    document.querySelector('.login-btn').style.backgroundColor = 'transparent';
+    document.querySelector('.login-btn').style.border = '2px solid var(--accent)';
   }
 }
 
-function change() {
-  if (document.getElementsByClassName("login-box")[0].style.display == "none") {
-    document.getElementsByClassName("login-box")[0].style.display = "block";
-    document.getElementsByClassName("register-box")[0].style.display = "none";
-  } else {
-    document.getElementsByClassName("register-box")[0].style.display = "block";
-    document.getElementsByClassName("login-box")[0].style.display = "none"
+// Close modals when clicking outside
+window.addEventListener('click', (e) => {
+  if (e.target.classList.contains('modal')) {
+    closeAllModals();
   }
-}
+});
